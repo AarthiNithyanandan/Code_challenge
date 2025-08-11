@@ -63,8 +63,7 @@ public class PlayerServiceImp implements IPlayerService{
 
 
 	@Override
-	public Player getPlayerById(int playerId) {
-		
+	public Player getPlayerById(int playerId) {	
 	    return playerRepository.findById(playerId).orElseThrow(() ->
 	    new PlayerNotFoundException("Player not found with id: " + playerId));
 	}

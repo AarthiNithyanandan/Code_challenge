@@ -32,6 +32,7 @@ public class PlayerDto {
 	    private int totalMatches;
 
 	    @NotBlank(message = "Team Name is required")
+	    @Pattern(regexp="Africa|India|Australia|New Zealand|Sri lanka",message="team names should be one among these")
 	    private String teamName;
 
 	    @NotBlank(message = "CountryName is required")
