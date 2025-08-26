@@ -12,6 +12,6 @@ public interface IPlayerService {
 	String deletePlayer(int playerId);
 	List<Player> getAllPlayers();
 	Player getPlayerById(int playerId);
-	
-	
+	 List<Player> searchByTeamName(String teamName);
+
 }

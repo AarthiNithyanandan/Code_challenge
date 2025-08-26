@@ -68,6 +68,11 @@ public class PlayerServiceImp implements IPlayerService{
 	    new PlayerNotFoundException("Player not found with id: " + playerId));
 	}
 
+	 @Override
+	    public List<Player> searchByTeamName(String teamName) {
+	        return playerRepository.findByTeamNameIgnoreCaseContaining(teamName);
+	    }
+
 	
 	
 }

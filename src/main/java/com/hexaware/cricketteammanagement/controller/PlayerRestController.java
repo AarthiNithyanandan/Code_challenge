@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import com.hexaware.cricketteammanagement.entity.Player;
 import com.hexaware.cricketteammanagement.service.IPlayerService;
 
 import jakarta.validation.Valid;
-
+@CrossOrigin(origins="http://localhost:5173")
 @RestController
 @RequestMapping("/api/players")
 public class PlayerRestController {
@@ -28,7 +29,7 @@ public class PlayerRestController {
     private IPlayerService playerService;
 
     @GetMapping("/getall")
-    public List<Player> getAllPlayers() {
+    public List<Player> getAllPhlayers() {
         return playerService.getAllPlayers();
     }
 
@@ -53,4 +54,8 @@ public class PlayerRestController {
         return playerService.deletePlayer(playerId);
     }
     
+    @GetMapping("/search/{teamName}")
+    public List<Player> searchPlayersByTeam(@PathVariable String teamName) {
+        return playerService.searchByTeamName(teamName);
+    }
 }
